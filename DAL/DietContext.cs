@@ -92,7 +92,10 @@ namespace DAL
                 .HasForeignKey(x => x.OnlineDietFormId);
 
 
+
             #endregion
+
+            base.OnModelCreating(modelBuilder);
         }
 
     }
