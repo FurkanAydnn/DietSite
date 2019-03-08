@@ -23,30 +23,40 @@ namespace Entity
         public bool LegumeConsumption { get; set; }
         public bool FoodCarriage { get; set; }
         public DateTime BreakfastTime { get; set; }
-        public string BreakfastLocation { get; set; }
+        public Location BreakfastLocation { get; set; }
         public DateTime LaunchTime { get; set; }
-        public string LaunchLocation { get; set; }
+        public Location LaunchLocation { get; set; }
         public DateTime DinnerTime { get; set; }
-        public string DinnerLocation { get; set; }
+        public Location DinnerLocation { get; set; }
         public string NutritionOrderURL { get; set; }
         public string IndespensableDishes { get; set; }
         public string NotConsumedDishes { get; set; }
         public string ChronicDiseases { get; set; }
         public string FamilyChronicDiseases { get; set; }
+
+        public virtual List<ProductConsumption> ProductConsumptions { get; set; }
+
+        public virtual List<HealthInfoResult> HealthInfoResults { get; set; }
     }
 
     public enum Gender
     {
-        Erkek,
-        Kadın
+        [Description("Erkek")] Man,
+        [Description("Kadın")] Woman
     }
 
     public enum Consumption
     {
-        [Description("Her Gün")] EveryDay = 1,
-        [Description("Birkaç günde bir")] EveryFewDays = 2,
-        [Description("Haftada bir")] OnceAWeek = 3,
-        [Description("Çok nadir")] Rarely = 4,
-        [Description("Hiç")] Never = 5
+        [Description("Her Gün")] EveryDay,
+        [Description("Birkaç günde bir")] EveryFewDays,
+        [Description("Haftada bir")] OnceAWeek,
+        [Description("Çok nadir")] Rarely,
+        [Description("Hiç")] Never
+    }
+
+    public enum Location
+    {
+        [Description("Ev")] Home,
+        [Description("İşyeri/Dışarıda")] Outside
     }
 }
