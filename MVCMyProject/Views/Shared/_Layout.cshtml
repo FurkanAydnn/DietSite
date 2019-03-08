@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="page1" id="top">
+
+    @Html.Partial("_LoginPartial")
+
+    @RenderBody()
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="grid_12">
+                    <div class="socials">
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-google-plus"></a>
+                        <a href="#" class="fa fa-pinterest"></a>
+                    </div>
+                    <div class="copyright">
+                        <span class="brand">Bliss </span> &copy; <span id="copyright-year"></span> | <a href="#">Privacy Policy</a> <div>Website designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bliss")
+    @RenderSection("scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $().UItoTop({ easingType: 'easeOutQuart' });
+            $('#stuck_container').tmStickUp({});
+            $('.gallery .gall_item').touchTouch();
+
+        });
+    </script>
+</body>
+</html>
