@@ -1,6 +1,5 @@
 ﻿using Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using MVCMyProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DietContext : IdentityDbContext<ApplicationUser>
+    public class DietContext : IdentityDbContext<Client>
     {
         public DietContext() : base("DietContext")
         {
@@ -34,8 +33,16 @@ namespace DAL
             modelBuilder.Entity<Article>()
                 .HasKey(x => x.Id);
 
+            modelBuilder.Entity<Article>()
+                .Property(x => x.Title)
+                .HasColumnType("text");
+
             modelBuilder.Entity<DietList>()
                 .HasKey(x => x.Id);
+
+            modelBuilder.Entity<DietList>()
+                .Property(x => x.Title)
+                .HasColumnType("text");
 
             modelBuilder.Entity<HealthInfo>()
                 .HasKey(x => x.Id);
