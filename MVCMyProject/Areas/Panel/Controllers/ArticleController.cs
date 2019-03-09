@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,12 @@ namespace MVCMyProject.Areas.Panel.Controllers
 {
     public class ArticleController : Controller
     {
+        UnitOfWork _uw = new UnitOfWork();
         // GET: Panel/Article
         public ActionResult Index()
         {
-            return View();
+            var list = _uw.Articles.GetAll();
+            return View(list);
         }
 
         public ActionResult Create()
