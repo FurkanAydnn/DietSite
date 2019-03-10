@@ -573,6 +573,7 @@
     <Folder Include="Areas\Panel\Views\DietList\" />
     <Folder Include="Areas\Panel\Views\Health\" />
     <Folder Include="Areas\Panel\Views\Product\" />
+    <Folder Include="Uploads\ArticleImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
