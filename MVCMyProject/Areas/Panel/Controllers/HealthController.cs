@@ -8,18 +8,19 @@ using System.Web.Mvc;
 
 namespace MVCMyProject.Areas.Panel.Controllers
 {
-    public class DietListController : Controller
+    public class HealthController : Controller
     {
         UnitOfWork _uw = new UnitOfWork();
-        // GET: Panel/DietList
+        // GET: Panel/Health
         public ActionResult Index(int? del)
         {
             if (del.HasValue)
             {
-                _uw.DietLists.Delete(del.Value);
+                _uw.HealthInfos.Delete(del.Value);
                 _uw.Complete();
             }
-            return View(_uw.DietLists.GetAll());
+
+            return View(_uw.HealthInfos.GetAll());
         }
 
         [HttpGet]
@@ -29,33 +30,35 @@ namespace MVCMyProject.Areas.Panel.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(DietList dietList)
+        public ActionResult Create(HealthInfo healthInfo)
         {
             if (ModelState.IsValid)
             {
-                _uw.DietLists.Add(dietList);
-                _uw.Complete();
-            }
-
-            return View(dietList);
-        }
-
-        public ActionResult Edit(int id)
-        {
-            DietList dietList = _uw.DietLists.GetOne(id);
-            return View(dietList);
-        }
-
-        public ActionResult Edit(DietList dietList)
-        {
-            if (ModelState.IsValid)
-            {
-                DietList old = _uw.DietLists.GetOne(dietList.Id);
-                _uw.db.Entry(old).CurrentValues.SetValues(dietList);
+                _uw.HealthInfos.Add(healthInfo);
                 _uw.Complete();
                 return RedirectToAction("Index");
             }
-            return View(dietList);
+
+            return View(healthInfo);
+        }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            return View(_uw.HealthInfos.GetOne(id));
+        }
+
+        [HttpPost]
+        public ActionResult Edit(HealthInfo info)
+        {
+            if (ModelState.IsValid)
+            {
+                HealthInfo old = _uw.HealthInfos.GetOne(info.Id);
+                _uw.db.Entry(old).CurrentValues.SetValues(info);
+                _uw.Complete();
+                return RedirectToAction("Index");
+            }
+
+            return View(info);
         }
     }
 }

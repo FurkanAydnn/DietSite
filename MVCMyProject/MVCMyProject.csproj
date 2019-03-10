@@ -175,6 +175,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Panel\Controllers\ArticleController.cs" />
     <Compile Include="Areas\Panel\Controllers\DietListController.cs" />
+    <Compile Include="Areas\Panel\Controllers\HealthController.cs" />
+    <Compile Include="Areas\Panel\Controllers\ProductController.cs" />
     <Compile Include="Areas\Panel\PanelAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -569,6 +571,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Panel\Models\" />
     <Folder Include="Areas\Panel\Views\DietList\" />
+    <Folder Include="Areas\Panel\Views\Health\" />
+    <Folder Include="Areas\Panel\Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
