@@ -11,8 +11,13 @@ namespace MVCMyProject.Areas.Panel.Controllers
     {
         UnitOfWork _uw = new UnitOfWork();
         // GET: Panel/Article
-        public ActionResult Index()
+        public ActionResult Index(int? del)
         {
+            if (del.HasValue)
+            {
+                _uw.Articles.Delete(del.Value);
+                _uw.Complete();
+            }
             var list = _uw.Articles.GetAll();
             return View(list);
         }
