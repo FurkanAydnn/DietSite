@@ -82,8 +82,7 @@ namespace MVCMyProject.Areas.Panel.Controllers
         {
             if (ModelState.IsValid)
             {
-                ProductType old = _uw.ProductTypes.GetOne(productType.Id);
-                _uw.db.Entry(old).CurrentValues.SetValues(productType);
+                _uw.ProductTypes.Update(productType);
                 _uw.Complete();
                 return RedirectToAction("Index");
             }
@@ -102,8 +101,7 @@ namespace MVCMyProject.Areas.Panel.Controllers
         {
             if (ModelState.IsValid)
             {
-                Product old = _uw.Products.GetOne(product.Id);
-                _uw.db.Entry(old).CurrentValues.SetValues(product);
+                _uw.Products.Update(product);
                 _uw.Complete();
                 return RedirectToAction("Index");
             }

@@ -40,18 +40,19 @@ namespace MVCMyProject.Areas.Panel.Controllers
             return View(dietList);
         }
 
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             DietList dietList = _uw.DietLists.GetOne(id);
             return View(dietList);
         }
 
+        [HttpPost]
         public ActionResult Edit(DietList dietList)
         {
             if (ModelState.IsValid)
             {
-                DietList old = _uw.DietLists.GetOne(dietList.Id);
-                _uw.db.Entry(old).CurrentValues.SetValues(dietList);
+                _uw.DietLists.Update(dietList);
                 _uw.Complete();
                 return RedirectToAction("Index");
             }

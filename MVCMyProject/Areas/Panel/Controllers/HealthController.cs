@@ -52,8 +52,7 @@ namespace MVCMyProject.Areas.Panel.Controllers
         {
             if (ModelState.IsValid)
             {
-                HealthInfo old = _uw.HealthInfos.GetOne(info.Id);
-                _uw.db.Entry(old).CurrentValues.SetValues(info);
+                _uw.HealthInfos.Update(info);
                 _uw.Complete();
                 return RedirectToAction("Index");
             }
