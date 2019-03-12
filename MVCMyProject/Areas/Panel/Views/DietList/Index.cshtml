@@ -1,0 +1,131 @@
+﻿@using Entity
+@model List<DietList>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section styles{
+    <style>
+        .create {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+        }
+    </style>
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">library_books</i>
+                        </div>
+                        <p class="card-category">Toplam Diyet Pakedi Sayısı</p>
+                        <h3 class="card-title">
+                            ##
+                        </h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons text-danger">warning</i>
+                            <a href="#pablo">Get More Space...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">store</i>
+                        </div>
+                        <p class="card-category">Revenue</p>
+                        <h3 class="card-title">$34,245</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">date_range</i> Last 24 Hours
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">info_outline</i>
+                        </div>
+                        <p class="card-category">Fixed Issues</p>
+                        <h3 class="card-title">75</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">local_offer</i> Tracked from Github
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-info card-header-icon">
+                        <div class="card-icon">
+                            <i class="fa fa-twitter"></i>
+                        </div>
+                        <p class="card-category">Followers</p>
+                        <h3 class="card-title">+245</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">update</i> Just Updated
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-warning">
+                        <h4 class="card-title">Diyet Paketleri</h4>
+                        <a href="~/Panel/DietList/Create" class="btn btn-warning create">Yeni Paket Ekle</a>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Başlık</th>
+                                    <th>Görüşme Periyodu</th>
+                                    <th>Ücret</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>##</td>
+                                    <td>2. Paket</td>
+                                    <td>Haftada bir</td>
+                                    <td>@Html.Raw(20.ToString("C"))</td>
+                                    <td><a href="#">Sil</a>/<a href="#">Düzenle</a></td>
+                                </tr>
+                                @foreach (DietList item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Title</td>
+                                        <td>@item.Period</td>
+                                        <td>@item.Price.ToString("C")</td>
+                                        <td><a href="?del=@item.Id">Sil</a>/<a href="#">Düzenle</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
