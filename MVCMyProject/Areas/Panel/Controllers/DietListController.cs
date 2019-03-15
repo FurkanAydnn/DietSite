@@ -35,6 +35,7 @@ namespace MVCMyProject.Areas.Panel.Controllers
             {
                 _uw.DietLists.Add(dietList);
                 _uw.Complete();
+                return RedirectToAction("Index");
             }
 
             return View(dietList);

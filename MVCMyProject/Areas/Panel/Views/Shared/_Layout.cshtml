@@ -33,7 +33,7 @@
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="nav-item active  ">
+                    <li class="nav-item">
                         <a class="nav-link" href="/Panel/Article/Index">
                             <i class="material-icons">library_books</i>
                             <p>Makaleler</p>
@@ -42,13 +42,13 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="/Panel/DietList/Index">
                             <i class="material-icons">person</i>
-                            <p>User Profile</p>
+                            <p>Paketler</p>
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="./tables.html">
+                        <a class="nav-link" href="/Panel/Health/Index">
                             <i class="material-icons">content_paste</i>
-                            <p>Table List</p>
+                            <p>Sağlık Bilgileri</p>
                         </a>
                     </li>
                     <li class="nav-item ">
@@ -87,9 +87,13 @@
     @RenderSection("scripts", required: false)
 
     <script>
-        $(document).ready(function () {
-            // Javascript method's body can be found in assets/js/demos.js
-            md.initDashboardPageCharts();
+        var address = "@Request.Url.AbsolutePath";
+
+        $("a.nav-link").each(function () {
+            if (address == $(this).attr("href"))
+                $(this).parent().addClass("active");
+            else
+                $(this).parent().removeClass("active");
         });
     </script>
 </body>

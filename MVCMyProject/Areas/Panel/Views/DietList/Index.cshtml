@@ -12,7 +12,14 @@
             right: 10px;
             top: 5px;
         }
+
+        th, td {
+            text-align: center;
+        }
     </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
 }
 <div class="content">
     <div class="container-fluid">
@@ -23,7 +30,7 @@
                         <div class="card-icon">
                             <i class="material-icons">library_books</i>
                         </div>
-                        <p class="card-category">Toplam Diyet Pakedi Sayısı</p>
+                        <p class="card-category">Toplam Paket Sayısı</p>
                         <h3 class="card-title">
                             ##
                         </h3>
@@ -100,17 +107,11 @@
                                     <th>Başlık</th>
                                     <th>Görüşme Periyodu</th>
                                     <th>Ücret</th>
+                                    <th>WhatsApp Danışma</th>
                                     <th>İşlemler</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>##</td>
-                                    <td>2. Paket</td>
-                                    <td>Haftada bir</td>
-                                    <td>@Html.Raw(20.ToString("C"))</td>
-                                    <td><a href="#">Sil</a>/<a href="#">Düzenle</a></td>
-                                </tr>
                                 @foreach (DietList item in Model)
                                 {
                                     <tr>
@@ -118,7 +119,17 @@
                                         <td>@item.Title</td>
                                         <td>@item.Period</td>
                                         <td>@item.Price.ToString("C")</td>
-                                        <td><a href="?del=@item.Id">Sil</a>/<a href="#">Düzenle</a></td>
+                                        <td>
+                                            @if (item.WhatsAppContanct)
+                                            {
+                                                <i class="fas fa-check"></i>
+                                            }
+                                            else
+                                            {
+                                                <i class="fas fa-times"></i>
+                                            }
+                                        </td>
+                                        <td><a href="?del=@item.Id">Sil</a>/<a href="/Panel/DietList/Edit/@item.Id">Düzenle</a></td>
                                     </tr>
                                 }
                             </tbody>

@@ -24,26 +24,15 @@ namespace MVCMyProject.Areas.Panel.Controllers
             return View(list);
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
+        [HttpPost]
         public ActionResult Create(Article article, List<HttpPostedFileBase> images)
         {
-            if (ModelState.IsValid)
-            {
-                //if (images.Count != 0)
-                //{
-                //    string path = Server.MapPath("/Uploads/ArticleImages/");
-                //    Directory.CreateDirectory(path + article.Id);
-
-                //    foreach (var item in images)
-                //    {
-                //        item.SaveAs(path + item.FileName);
-                //    }
-                //}
-            }
             return View();
         }
 

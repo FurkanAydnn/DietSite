@@ -445,6 +445,12 @@
     <Content Include="Areas\Panel\assets\scss\material-dashboard\_variables.scss" />
     <Content Include="Areas\Panel\Views\Article\Create.cshtml" />
     <Content Include="Areas\Panel\Views\DietList\Index.cshtml" />
+    <Content Include="Areas\Panel\Views\Health\Index.cshtml" />
+    <Content Include="Areas\Panel\Views\DietList\Create.cshtml" />
+    <Content Include="Areas\Panel\Views\DietList\Edit.cshtml" />
+    <Content Include="Areas\Panel\Views\Health\Create.cshtml" />
+    <Content Include="Areas\Panel\Views\Health\Edit.cshtml" />
+    <Content Include="Areas\Panel\Views\Product\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -590,8 +596,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Panel\Models\" />
-    <Folder Include="Areas\Panel\Views\Health\" />
-    <Folder Include="Areas\Panel\Views\Product\" />
     <Folder Include="Uploads\ArticleImages\" />
   </ItemGroup>
   <ItemGroup>

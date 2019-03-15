@@ -2,6 +2,7 @@
 using Entity.Abstract;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 
@@ -73,6 +74,7 @@ namespace BLL
             {
                 T old = GetOne(willBeUpdated.Id);
                 _db.Entry(old).CurrentValues.SetValues(willBeUpdated);
+                _db.Entry(old).State = EntityState.Modified;
                 return true;
             }
             catch (Exception)

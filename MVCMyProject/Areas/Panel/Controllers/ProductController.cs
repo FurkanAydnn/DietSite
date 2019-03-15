@@ -27,8 +27,8 @@ namespace MVCMyProject.Areas.Panel.Controllers
             }
 
 
-            ViewBag.Products = _uw.Products.GetAll();
-            return View(_uw.ProductTypes.GetAll());
+            ViewBag.ProductTypes = _uw.ProductTypes.GetAll();
+            return View(_uw.Products.GetAll());
         }
 
         [HttpGet]
