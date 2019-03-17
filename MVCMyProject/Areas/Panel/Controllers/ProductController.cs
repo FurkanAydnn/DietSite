@@ -18,12 +18,16 @@ namespace MVCMyProject.Areas.Panel.Controllers
             {
                 _uw.ProductTypes.Delete(type.Value);
                 _uw.Complete();
+                ViewBag.ProductTypes = _uw.ProductTypes.GetAll();
+                return View(_uw.Products.GetAll());
             }
 
             if (prod.HasValue)
             {
                 _uw.Products.Delete(prod.Value);
                 _uw.Complete();
+                ViewBag.ProductTypes = _uw.ProductTypes.GetAll();
+                return View(_uw.Products.GetAll());
             }
 
 
@@ -51,8 +55,10 @@ namespace MVCMyProject.Areas.Panel.Controllers
         }
 
         [HttpGet]
-        public ActionResult CreateProduct()
+        public ActionResult CreateProduct(int? type)
         {
+            if (type.HasValue)
+                ViewBag.SelectedType = type.Value;
             ViewBag.Types = _uw.ProductTypes.GetAll();
             return View();
         }
@@ -93,6 +99,7 @@ namespace MVCMyProject.Areas.Panel.Controllers
         [HttpGet]
         public ActionResult EditProduct(int id)
         {
+            ViewBag.Types = _uw.ProductTypes.GetAll();
             return View(_uw.Products.GetOne(id));
         }
 
@@ -106,6 +113,7 @@ namespace MVCMyProject.Areas.Panel.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.Types = _uw.ProductTypes.GetAll();
             return View(product);
         }
     }

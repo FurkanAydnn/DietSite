@@ -1,4 +1,13 @@
-﻿<section class="content">
+﻿@using Entity
+@{
+    var article1 = (Article)ViewBag.Article1;
+    var article2 = (Article)ViewBag.Article2;
+    var article3 = (Article)ViewBag.Article3;
+}
+
+<link href="~/Content/owl.carousel.min.css" rel="stylesheet" />
+<link href="~/Content/owl.theme.green.min.css" rel="stylesheet" />
+<section class="content">
     <div class="ic"></div>
     <div class="container">
         <div class="row">
@@ -9,8 +18,8 @@
                         <div class="bann_capt ">
                             <div class="maxheight">
                                 <img src="/Theme/images/icon1.png" alt="">
-                                <div class="bann_title">Traditional Cuisine</div>
-                                <a href="#">more</a>
+                                <div class="bann_title">@article1.Title</div>
+                                <a href="#">devamini gör..</a>
                             </div>
                         </div>
                     </div>
@@ -22,7 +31,7 @@
                         <div class="bann_capt  bn__1">
                             <div class="maxheight">
                                 <img src="/Theme/images/icon2.png" alt="">
-                                <div class="bann_title">Kid’s &amp; Vegan Menu</div>
+                                <div class="bann_title">@article2.Title</div>
                                 <a href="#">more</a>
                             </div>
                         </div>
@@ -37,35 +46,39 @@
                         <div class="bann_capt  bn__2">
                             <div class="maxheight">
                                 <img src="/Theme/images/icon3.png" alt="">
-                                <div class="bann_title">Happy Hours <br> &amp; Offers</div>
+                                <div class="bann_title">@article3.Title</div>
                                 <a href="#">more</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="grid_4">
-                <div class="block1">
-                    <div class="count">1.</div>
-                    Vivamus at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum a, commodo. Praesent faucibus malesuada faucibus. Donec laeet metus id laoreet malesuadarem ipsum dolor
-                    <br>
-                    <a href="#" class="btn">more</a>
-                </div>
+            <div class="grid_12 text-center">
+                <h2>Online Diyet Teklifleri</h2>
             </div>
-            <div class="grid_4">
-                <div class="block1">
-                    <div class="count">2.</div>
-                    Dasamus at magna non nunc tristique rhoncus. Kliquam nibh ante, egestas id dictum a, commodo. Praesent faucibus malesuada faucibus. Donec laeet metus id laoreet malesuadarem ipsumer
-                    <br>
-                    <a href="#" class="btn">more</a>
-                </div>
-            </div>
-            <div class="grid_4">
-                <div class="block1">
-                    <div class="count">3.</div>
-                    Tervamus at magna non nunc tristique rhoncus. Oliquam nibh ante, egestas id dictum a, commodo. Iraesent faucibus malesuada faucibus. Donec laeet etus id laoreet malesuadarem ipsolo
-                    <br>
-                    <a href="#" class="btn">more</a>
+            <div class="grid_12">
+                <div class="diet">
+                    <div class="owl-carousel owl-theme">
+                        @foreach (DietList item in ViewBag.DietLists)
+                        {
+                            <div class="item">
+                                <h3>@item.Title</h3>
+                                <h3 style="float:right">@item.Price.ToString("C")</h3>
+                                <hr />
+                                <div>
+                                    <ul>
+                                        <li>asdasdasd</li>
+                                        <li>asdasdasdasd</li>
+                                        <li>asdasdasdasd</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+                        <div class="item"><h2>1</h2></div>
+                        <div class="item"><h2>2</h2></div>
+                        <div class="item"><h2>3</h2></div>
+                        <div class="item"><h2>4</h2></div>
+                    </div>
                 </div>
             </div>
             <div class="grid_12">
@@ -73,7 +86,7 @@
                     <div class="row">
                         <div class="grid_5 preffix_1">
                             <h2>Welcome</h2>
-                            <p>Post about this <strong class="color1"><a href="http://blog.templatemonster.com/free-website-templates/" rel="nofollow">freebie</a></strong> will tell all you need to know about it. Need a good choice of <strong class="color1"><a href="http://www.templatemonster.com/properties/topic/food-restaurant/" rel="nofollow">themes</a></strong>? Visit TemplateMonster’s website.</p>
+                            <p>Post about this <strong class="color1"><a href="http://blog.templatemonster.com/free-website-templates/" rel="nofollow">freebie</a></strong> will tell all you need to know about it.Need a good choice of <strong class="color1"><a href="http://www.templatemonster.com/properties/topic/food-restaurant/" rel="nofollow">themes</a></strong>? Visit TemplateMonster’s website.</p>
                             Aliquam nibh e,estas id dictum a, commodo. Praesent faucibus malesuada faucibusonec laeet metus id laoreet malesuadarem ipsum dolor sit <br>
                             <a href="#" class="btn">more</a>
                         </div>
@@ -130,3 +143,14 @@
         </div>
     </div>
 </section>
+@section scripts{
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            items: 1
+        })
+    </script>
+}

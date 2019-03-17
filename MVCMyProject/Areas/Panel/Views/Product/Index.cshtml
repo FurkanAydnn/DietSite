@@ -23,9 +23,9 @@
                         <div class="card-icon">
                             <i class="material-icons">library_books</i>
                         </div>
-                        <p class="card-category">Toplam Test Sayısı</p>
+                        <p class="card-category">Toplam Kategori Sayısı</p>
                         <h3 class="card-title">
-                            ##
+                            @ViewBag.ProductTypes.Count
                         </h3>
                     </div>
                     <div class="card-footer">
@@ -42,8 +42,8 @@
                         <div class="card-icon">
                             <i class="material-icons">store</i>
                         </div>
-                        <p class="card-category">Revenue</p>
-                        <h3 class="card-title">$34,245</h3>
+                        <p class="card-category">Toplam ürün sayısı</p>
+                        <h3 class="card-title">@Model.Count()</h3>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
@@ -89,8 +89,8 @@
             <div class="col-lg-12 col-md-12">
                 <div class="card">
                     <div class="card-header card-header-warning">
-                        <h4 class="card-title">Diyet Paketleri</h4>
-                        <a href="~/Panel/Health/Create" class="btn btn-warning create">Yeni Paket Ekle</a>
+                        <h4 class="card-title">Kategoriler</h4>
+                        <a href="~/Panel/Product/CreateType" class="btn btn-warning create">Yeni KATEGORİ Ekle</a>
                     </div>
                     <div class="card-body table-responsive">
                         <table class="table table-hover">
@@ -107,7 +107,7 @@
                                     <tr>
                                         <td>@item.Id</td>
                                         <td>@item.Name</td>
-                                        <td><a href="?del=@item.Id">Sil</a>/<a href="/Panel/Health/Edit/@item.Id">Düzenle</a></td>
+                                        <td><a href="?type=@item.Id">Sil</a>/<a href="/Panel/Product/EditType/@item.Id">Düzenle</a></td>
                                     </tr>
                                 }
                             </tbody>
@@ -117,35 +117,40 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-warning">
-                        <h4 class="card-title">Yiyecekler</h4>
-                        <a href="~/Panel/Health/Create" class="btn btn-warning create">Yeni Paket Ekle</a>
-                    </div>
-                    <div class="card-body table-responsive">
-                        <table class="table table-hover">
-                            <thead class="text-warning">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Başlık</th>
-                                    <th>İşlemler</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (Product item in Model)
-                                {
+
+            @foreach (ProductType type in ViewBag.ProductTypes)
+            {
+                <div class="col-lg-6 col-md-6">
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title">@type.Name</h4>
+                            <a href="~/Panel/Product/CreateProduct?type=@type.Id" class="btn btn-warning create">YENİ ÜRÜN EKLE</a>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
                                     <tr>
-                                        <td>@item.Id</td>
-                                        <td>@item.Name</td>
-                                        <td><a href="?del=@item.Id">Sil</a>/<a href="/Panel/Health/Edit/@item.Id">Düzenle</a></td>
+                                        <th>ID</th>
+                                        <th>Başlık</th>
+                                        <th>İşlemler</th>
                                     </tr>
-                                }
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @foreach (Product item in Model.Where(x => x.ProductTypeId == type.Id))
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Name</td>
+                                            <td><a href="?prod=@item.Id">Sil</a>/<a href="/Panel/Product/EditProduct/@item.Id">Düzenle</a></td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
     </div>
 </div>
