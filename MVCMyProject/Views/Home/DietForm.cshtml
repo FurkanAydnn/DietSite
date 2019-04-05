@@ -1,0 +1,297 @@
+﻿@using Entity
+@using BLL
+@section styles{
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        a:hover {
+            text-decoration: none;
+        }
+
+        input[type=radio] {
+            -webkit-appearance: radio !important;
+        }
+
+        .myRadio {
+            margin-top: 5px;
+            margin-right: 25px;
+        }
+
+        .form-group {
+            min-height: 55px;
+        }
+
+        textarea {
+            min-height: 114px;
+            resize: vertical;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        label.info {
+            font-style: italic;
+            font-size: 12px;
+            color: rgb(170, 170, 170);
+            display: inline;
+        }
+
+        .file-upload {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-upload-btn {
+            margin-top: 0px !important;
+            padding: 6px 12px !important;
+        }
+    </style>
+}
+@{
+    if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @Html.ValidationSummary()
+        </div>
+    }
+}
+<section class="content">
+    <div class="ic"></div>
+    <div class="container">
+        <br /><br />
+        <h2>Online Diyet Formu</h2>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <form action="/Home/DietForm" method="post">
+                    <h4>Kişisel Bilgiler</h4>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">İsim:</label>
+                        <input class="form-control" name="Name" />
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Soyisim:</label>
+                        <input class="form-control" name="Surname" />
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Yaş:</label>
+                        <input type="number" class="form-control" name="Age" />
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Cinsiyet:</label>
+                        <br />
+                        @foreach (Gender item in Enum.GetValues(typeof(Gender)))
+                        {
+                            <label class="control-label myRadio">
+                                <input type="radio" name="Gender" value="@item" />
+                                @EnumDescriptionHelper.GetEnumDescription((Gender)item)
+                            </label>
+                        }
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Boy:</label>
+                        <input class="form-control" type="number" name="Height" />
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Kilo:</label>
+                        <input class="form-control" type="number" name="Weight" />
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Bel Çevresi:</label>
+                        <input class="form-control" type="number" name="WaistLength" />
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Genellikle bulunduğunuz kilo aralığı:</label>
+                        <input class="form-control" type="number" name="OverallWeight" />
+                    </div>
+                    <hr class="col-xs-12">
+                    <h4>Beslenme Alışkanlıkları</h4>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Vazgeçemem denilen besinler:</label>
+                        <textarea class="form-control" rows="5" name="IndespensableDishes"></textarea>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Tüketilmeyen besinler:</label>
+                        <textarea class="form-control" rows="5" name="NotConsumedDishes"></textarea>
+                    </div>
+                    @foreach (ProductType type in ViewBag.ProductTypes)
+                    {
+                        <div class="form-group col-sm-12">
+                            <table class="table table-bordered">
+                                <caption><h5>@type.Name Tüketimi</h5></caption>
+                                <thead>
+                                    <tr>
+                                        <th>Ürün Adı</th>
+                                        <th>Evet</th>
+                                        <th>Hayır</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Product item in ViewBag.Products)
+                                    {
+                                        if (item.ProductTypeId == type.Id)
+                                        {
+                                            <tr>
+                                                <td>@item.Name</td>
+                                                <th><input type="radio" name="@Html.Raw(item.Name.Replace(" ", "") + "_" + item.Id)" value="true" /></th>
+                                                <th><input type="radio" name="@Html.Raw(item.Name.Replace(" ", "") + "_" + item.Id)" value="false" /></th>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    <div class="form-group col-sm-12">
+                        <label class="control-label">Meyve tüketim sıklığınız: </label>
+                        <br />
+                        @foreach (var item in Enum.GetValues(typeof(Consumption)))
+                        {
+                            <label class="control-label myRadio">
+                                <input type="radio" name="FruitConsumption" value="@item" />
+                                @EnumDescriptionHelper.GetEnumDescription((Consumption)item)
+                            </label>
+                        }
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label class="control-label">Sebze tüketim sıklığınız: </label>
+                        <br />
+                        @foreach (var item in Enum.GetValues(typeof(Consumption)))
+                        {
+                            <label class="control-label myRadio">
+                                <input type="radio" name="VegetableConsumption" value="@item" />
+                                @EnumDescriptionHelper.GetEnumDescription((Consumption)item)
+                            </label>
+                        }
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label class="control-label">Kurubaklagil tüketiminiz var mı?</label>
+                        <br />
+                        <label class="control-label myRadio"><input type="radio" name="LegumeConsumption" value="true" /> Evet</label>
+                        <label class="control-label myRadio"><input type="radio" name="LegumeConsumption" value="false" /> Hayır</label>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label class="control-label">Evden işe yemek götürebiliyor musunuz?</label>
+                        <br />
+                        <label class="control-label myRadio"><input type="radio" name="FoodCarriage" value="true" /> Evet</label>
+                        <label class="control-label myRadio"><input type="radio" name="FoodCarriage" value="false" /> Hayır</label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Kahvaltı saati</label>
+                        <input class="form-control" type="time" name="BreakfastTime" />
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Kahvaltı Yeri</label>
+                        <br />
+                        @foreach (Location item in Enum.GetValues(typeof(Location)))
+                        {
+                            <label class="control-label myRadio"><input type="radio" name="BreakfastLocation" value="@item" /> @EnumDescriptionHelper.GetEnumDescription((Location)item)</label>
+                        }
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Öğle yemeği saati</label>
+                        <input class="form-control" type="time" name="LuchTime" />
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Öğle yemeği yeri</label>
+                        <br />
+                        @foreach (Location item in Enum.GetValues(typeof(Location)))
+                        {
+                            <label class="control-label myRadio"><input type="radio" name="LunchLocation" value="@item" /> @EnumDescriptionHelper.GetEnumDescription((Location)item)</label>
+                        }
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Akşam yemeği saati</label>
+                        <input class="form-control" type="time" name="DinnerTime" />
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Akşam yemeği yeri</label>
+                        <br />
+                        @foreach (Location item in Enum.GetValues(typeof(Location)))
+                        {
+                            <label class="control-label myRadio"><input type="radio" name="DinnerLocation" value="@item" /> @EnumDescriptionHelper.GetEnumDescription((Location)item)</label>
+                        }
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label class="control-label">Genel hatlarıyla beslenme düzeninizi anlatan,beslenme alışkanlıklarınızı birkaç cümleyle yazınız.</label>
+                        <textarea class="form-control" rows="5" name="NutritionOrder"></textarea>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label class="control-label">Üç günlük besin tüketim kaydınızı ekleyiniz.</label>
+                        <label class="control-label info">(Üç günlük tüketim kaydı çalışıyorsanız ikisi iş, biri tatil günü olmak üzere ayarlanmalıdır. Gün içerisinde tüketilen tüm besinler saati ve miktarıyla kaydedilmelidir.)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control file-upload-text" disabled placeholder="select a file..." />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default file-upload-btn">
+                                    Browse...
+                                    <input type="file" class="file-upload" name="myFile" />
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <hr class="col-xs-12">
+                    <h4>Sağlık Bilgileri</h4>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            @foreach (HealthInfo item in ViewBag.HealthInfo)
+                            {
+                                <label class="control-label">@item.Name :</label>
+                                <input class="form-control" name="@item.Name" placeholder="Test sonucunu giriniz.." />
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label class="control-label">Kronik hastalıklarınız</label>
+                            <textarea class="form-control" name="ChronicDiseases" rows="5"></textarea>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label class="control-label">Ailenizdeki kronik hastalıklar</label>
+                            <textarea class="form-control" name="FamilyChronicDiseases" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-6">
+                            <button class="btn form-control">Gönder</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script>
+        $("th").click(function () {
+            $(this).find('input').prop("checked", "checked");
+        })
+    </script>
+
+    <script>
+        function initializeFileUploads() {
+            $('.file-upload').change(function () {
+                var file = $(this).val();
+                $(this).closest('.input-group').find('.file-upload-text').val(file);
+            });
+            $('.file-upload-btn').click(function () {
+                $(this).find('.file-upload').trigger('click');
+            });
+            $('.file-upload').click(function (e) {
+                e.stopPropagation();
+            });
+        }
+
+
+        // On document load:
+        $(function () {
+            initializeFileUploads();
+        });
+    </script>
+}

@@ -23,12 +23,13 @@ namespace Entity
         public Consumption VegetableConsumption { get; set; }
         public bool LegumeConsumption { get; set; }
         public bool FoodCarriage { get; set; }
-        public DateTime BreakfastTime { get; set; }
+        public string BreakfastTime { get; set; }
         public Location BreakfastLocation { get; set; }
-        public DateTime LaunchTime { get; set; }
-        public Location LaunchLocation { get; set; }
-        public DateTime DinnerTime { get; set; }
+        public string LunchTime { get; set; }
+        public Location LunchLocation { get; set; }
+        public string DinnerTime { get; set; }
         public Location DinnerLocation { get; set; }
+        public string NutritionOrder { get; set; }
         public string NutritionOrderURL { get; set; }
         public string IndespensableDishes { get; set; }
         public string NotConsumedDishes { get; set; }

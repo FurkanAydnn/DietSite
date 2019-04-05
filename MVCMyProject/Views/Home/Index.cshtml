@@ -5,11 +5,31 @@
     var article3 = (Article)ViewBag.Article3;
 }
 
+<style>
+    .mail-alert {
+        padding: 5px;
+        color: white;
+        text-align: center;
+        font-size: 16px;
+        position: fixed;
+        bottom: 40px;
+        left: 48%;
+        z-index: 10;
+        border: solid 1px green;
+        border-radius: 10px;
+        background: #AAD4B3;
+    }
+</style>
 <link href="~/Content/owl.carousel.min.css" rel="stylesheet" />
 <link href="~/Content/owl.theme.green.min.css" rel="stylesheet" />
 <section class="content">
     <div class="ic"></div>
     <div class="container">
+        <div class="asdfg">
+            <span class="mail-alert">
+                İşlem başarılı
+            </span>
+        </div>
         <div class="row">
             <div class="grid_4">
                 <div class="banner">
@@ -56,31 +76,38 @@
             <div class="grid_12 text-center">
                 <h2>Online Diyet Teklifleri</h2>
             </div>
-            <div class="grid_12">
+            <div class="grid_3"></div>
+            <div class="grid_6">
                 <div class="diet">
                     <div class="owl-carousel owl-theme">
                         @foreach (DietList item in ViewBag.DietLists)
                         {
                             <div class="item">
+                                <img class="diet_logo" src="~/Uploads/Logos/main_logo.png" alt="Alternate Text" />
                                 <h3>@item.Title</h3>
                                 <h3 style="float:right">@item.Price.ToString("C")</h3>
                                 <hr />
                                 <div>
                                     <ul>
-                                        <li>asdasdasd</li>
-                                        <li>asdasdasdasd</li>
-                                        <li>asdasdasdasd</li>
+                                        <li>Tamamen size uygun hazırlanmış kişisel diyet listesi</li>
+                                        <li>Haftada <strong>@item.Period</strong> -30-ar dakikalık << beslenme konulu >>  telefon görüşmesi</li>
+                                        @if (item.WhatsAppContanct)
+                                        {
+                                            <li>Whatsapptan soru sorma <strong>(10:00 - 18:00 arası)</strong></li>
+                                        }
+                                        <li>Yaşam tarzınız, zararlı alışkanlıklarınız, hastalıklarınız, kullandığınız ilaçlar gibi kriterlere göre beslenme önerileri</li>
+                                        <li>Besin tüketim kaydı</li>
+                                        <li>Motivasyon desteği</li>
                                     </ul>
                                 </div>
+                                <hr />
                             </div>
                         }
-                        <div class="item"><h2>1</h2></div>
-                        <div class="item"><h2>2</h2></div>
-                        <div class="item"><h2>3</h2></div>
-                        <div class="item"><h2>4</h2></div>
                     </div>
                 </div>
+                <br />
             </div>
+            <div class="grid_3"></div>
             <div class="grid_12">
                 <div class="box">
                     <div class="row">
@@ -149,8 +176,20 @@
         $('.owl-carousel').owlCarousel({
             loop: true,
             margin: 10,
-            nav: true,
+            dots: false,
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
             items: 1
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                $(".mail-alert").fadeOut(2000);
+            }, 1000)
         })
     </script>
 }

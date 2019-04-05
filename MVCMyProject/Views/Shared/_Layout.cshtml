@@ -12,8 +12,10 @@
 
     @Html.Partial("_LoginPartial")
 
+    @RenderSection("styles", required: false)
     @RenderBody()
 
+    @Styles.Render("~/Content/css")
     <footer id="footer">
         <div class="container">
             <div class="row">

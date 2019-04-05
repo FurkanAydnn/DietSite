@@ -25,6 +25,7 @@ namespace DAL
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductType> ProductTypes { get; set; }
         public virtual DbSet<ProductConsumption> ProductConsumptions { get; set; }
+        public virtual DbSet<GeneralSettings> GeneralSettings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -65,7 +66,19 @@ namespace DAL
             modelBuilder.Entity<ProductConsumption>()
                 .HasKey(x => x.Id);
 
+            modelBuilder.Entity<GeneralSettings>()
+                .HasKey(x => x.Id);
+
+            modelBuilder.Entity<GeneralSettings>()
+                .Property(x => x.AboutMe)
+                .HasColumnType("text");
+
+            modelBuilder.Entity<GeneralSettings>()
+                .Property(x => x.ImageURL)
+                .HasColumnType("text");
             #endregion
+
+
 
             #region Relations
 

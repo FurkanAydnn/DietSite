@@ -57,6 +57,7 @@
     <Compile Include="Abstract\IEntity.cs" />
     <Compile Include="Article.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="GeneralSettings.cs" />
     <Compile Include="HealthInfo.cs" />
     <Compile Include="HealthInfoResult.cs" />
     <Compile Include="Product.cs" />

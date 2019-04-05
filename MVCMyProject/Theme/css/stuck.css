@@ -1,50 +1,49 @@
 #stuck_container {
-		-webkit-transition: all 0.4s ease;
-		-moz-transition: all 0.4s ease;
-		-ms-transition: all 0.4s ease;
-		-o-transition: all 0.4s ease;
-		transition: all 0.4s ease;
-		z-index: 999;
-		background-color: #f1f0f1;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    z-index: 999;
+    background-color: #FDFBED;
+    box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.75);
 }
 
 .isStuck {
-		-webkit-transition: all 0.2s ease;
-		-moz-transition: all 0.2s ease;
-		-ms-transition: all 0.2s ease;
-		-o-transition: all 0.2s ease;
-		transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 
-.isStuck .menuBox {
-	margin: 0;
-
-	-webkit-transition: all 0.4s ease;
-	-moz-transition: all 0.4s ease;
-	-ms-transition: all 0.4s ease;
-	-o-transition: all 0.4s ease;
-	transition: all 0.4s ease;
-}
+    .isStuck .menuBox {
+        margin: 0;
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        -ms-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
 
 @media only screen and (max-width: 979px) {
 
-	#stuck_container {
-		position: relative !important;
-		box-shadow: none;
-		
-	}
-	.pseudoStickyBlock {
-		height: 0 !important;
-	}
+    #stuck_container {
+        position: relative !important;
+        box-shadow: none;
+    }
 
-	.isStuck {
-	}
+    .pseudoStickyBlock {
+        height: 0 !important;
+    }
+
+    .isStuck {
+    }
 }
 
 @media only screen and (max-width: 767px) {
 
-	.isStuck {    
-
-}
+    .isStuck {
+    }
 }
