@@ -29,7 +29,7 @@ namespace BLL
             Products = new BaseRepository<Product>(db);
             ProductTypes = new BaseRepository<ProductType>(db);
             ProductConsumptions = new BaseRepository<ProductConsumption>(db);
-            GeneralSettings = new BaseRepository<GeneralSettings>(db);
+            GeneralSettings = new GeneralSettingsRepository(db);
         }
 
         public static DietContext Create()
@@ -59,7 +59,7 @@ namespace BLL
         public BaseRepository<Product> Products;
         public BaseRepository<ProductType> ProductTypes;
         public BaseRepository<ProductConsumption> ProductConsumptions;
-        public BaseRepository<GeneralSettings> GeneralSettings;
+        public GeneralSettingsRepository GeneralSettings;
 
     }
 }

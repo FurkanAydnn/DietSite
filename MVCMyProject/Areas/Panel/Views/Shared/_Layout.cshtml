@@ -29,7 +29,8 @@
                 var dietlist_isACtive = "";
                 var health_isActive = "";
                 var product_isActive = "";
-                if (a.Contains("Article"))
+                var settings_isActive="";
+                            if (a.Contains("Article"))
                 {
                     article_isActive = "active";
                 }
@@ -45,6 +46,10 @@
                 {
                     product_isActive = "active";
                 }
+                if (a.Contains("Settings"))
+                {
+                    settings_isActive = "active";
+                }
 
             }
             <div class="sidebar-wrapper">
@@ -57,7 +62,7 @@
                     </li>
                     <li class="nav-item @dietlist_isACtive">
                         <a class="nav-link" href="/Panel/DietList/Index">
-                            <i class="material-icons">person</i>
+                            <i class="material-icons">local_dining</i>
                             <p>Paketler</p>
                         </a>
                     </li>
@@ -69,8 +74,14 @@
                     </li>
                     <li class="nav-item @product_isActive">
                         <a class="nav-link" href="/Panel/Product/Index">
-                            <i class="material-icons">library_books</i>
+                            <i class="material-icons">fastfood</i>
                             <p>Kategoriler/Ürünler</p>
+                        </a>
+                    </li>
+                    <li class="nav-item @settings_isActive">
+                        <a class="nav-link" href="/Panel/GeneralSettings/Index">
+                            <i class="material-icons">settings</i>
+                            <p>Genel Ayarlar</p>
                         </a>
                     </li>
                 </ul>

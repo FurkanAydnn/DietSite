@@ -459,6 +459,8 @@
     <Content Include="Areas\Panel\Views\Product\EditProduct.cshtml" />
     <Content Include="Areas\Panel\Views\Product\CreateProduct.cshtml" />
     <Content Include="Areas\Panel\Views\GeneralSettings\Index.cshtml" />
+    <Content Include="Areas\Panel\Views\GeneralSettings\Create.cshtml" />
+    <Content Include="Areas\Panel\Views\GeneralSettings\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -554,6 +556,11 @@
     <Content Include="Theme\js\touchTouch.jquery.js" />
     <Content Include="Theme\mail\libmail.php" />
     <Content Include="Theme\mail\MailHandler.php" />
+    <Content Include="Uploads\Logos\facebook.png" />
+    <Content Include="Uploads\Logos\instagram.png" />
+    <Content Include="Uploads\Logos\mail.png" />
+    <Content Include="Uploads\Logos\whatsapp.png" />
+    <Content Include="Uploads\Logos\twitter.png" />
     <Content Include="Uploads\Logos\main_logo.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

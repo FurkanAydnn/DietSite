@@ -84,7 +84,7 @@ namespace MVCMyProject.Controllers
 
         public ActionResult Contact()
         {
-            return View();
+            return View(_uw.GeneralSettings.GetSettings());
         }
     }
 }

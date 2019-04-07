@@ -1,17 +1,56 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿@using Entity
+@model GeneralSettings
+
+@section styles{
+    <style>
+        .card {
+            border-radius: 50px;
+            background-color: #FDFBED;
+            margin-top: 49px;
+            padding: 20px;
+        }
+
+        .contact_logo {
+            width: 200px !important;
+            height: 100px;
+        }
+
+        .contact_footer, .contact_header {
+            text-align: center;
+        }
+
+        .contact_body a {
+            display: block;
+            padding: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<section class="content">
+    <div class="ic"></div>
+    <div class="container">
+        <div class="row">
+            <div class="grid_2"></div>
+            <div class="grid_8">
+                <div class="card">
+                    <div class="contact_header">
+                        <h2>İletişim Bilgileri</h2>
+                    </div>
+                    <hr />
+                    <div class="contact_body">
+                        <h4>Dyt. Sena Karamanlı</h4>
+                        <a href="@Model.InstagramURL"><img src="~/Uploads/Logos/instagram.png" /> @Model.InstagramURL</a>
+                        <a href="@Model.TwitterURL"><img src="~/Uploads/Logos/twitter.png" /> @Model.TwitterURL</a>
+                        <a href=" @Model.FacebookURL"><img src="~/Uploads/Logos/facebook.png" /> @Model.FacebookURL</a>
+                        <a href="@Model.Phone"><img src="~/Uploads/Logos/whatsapp.png" /> @String.Format("{0:0(###) ### ## ##}", Convert.ToInt64(Model.Phone))</a>
+                        <a href="@Model.Email"><img src="~/Uploads/Logos/mail.png" /> @Model.Email</a>
+                    </div>
+                    <div class="contact_footer">
+                        <img class="contact_logo" src="~/Uploads/Logos/main_logo.png" alt="Alternate Text" />
+                    </div>
+                </div>
+            </div>
+            <div class="grid_2"></div>
+        </div>
+    </div>
+</section>

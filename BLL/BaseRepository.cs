@@ -10,7 +10,7 @@ namespace BLL
 {
     public class BaseRepository<T> where T : class
     {
-        private DietContext _db = new DietContext();
+        private DietContext _db;
 
         public BaseRepository(DietContext db)
         {

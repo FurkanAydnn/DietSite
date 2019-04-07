@@ -19,7 +19,7 @@ namespace MVCMyProject.Areas.Panel.Controllers
                 _uw.GeneralSettings.Delete(del.Value);
                 _uw.Complete();
             }
-            return View(_uw.GeneralSettings.GetAll());
+            return View(_uw.GeneralSettings.GetSettings());
         }
 
         [HttpGet]
