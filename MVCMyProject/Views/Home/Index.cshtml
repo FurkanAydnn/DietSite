@@ -19,6 +19,11 @@
         border-radius: 10px;
         background: #AAD4B3;
     }
+
+    .index_img {
+        width: 100px;
+        margin-right: 20px;
+    }
 </style>
 <link href="~/Content/owl.carousel.min.css" rel="stylesheet" />
 <link href="~/Content/owl.theme.green.min.css" rel="stylesheet" />
@@ -109,7 +114,7 @@
             </div>
             <div class="grid_3"></div>
             <div class="grid_12">
-                <div class="box">
+                <div hidden class="box">
                     <div class="row">
                         <div class="grid_5 preffix_1">
                             <h2>Welcome</h2>
@@ -133,33 +138,36 @@
                 <div class="grid_4"><a href="images/big2.jpg" class="gall_item"><img src="/Theme/images/page1_img5.jpg" alt=""></a><a href="#" class="link1">+</a><div class="clear"></div></div>
                 <div class="grid_4"><a href="images/big3.jpg" class="gall_item"><img src="/Theme/images/page1_img6.jpg" alt=""></a><a href="#" class="link1">+</a><div class="clear"></div></div>
             </div>
+            <div class="grid_2"></div>
             <div class="grid_4">
                 <h2>Testimonials</h2>
                 <blockquote class="bq1">
-                    <img src="/Theme/images/page1_img7.jpg" alt="" class="img_inner fleft noresize">
+                    <img src="~/Uploads/Images/sena_karamanli.jpeg" class="index_img" style="float:left;" />
                     <div class="extra_wrapper">
-                        <div class="bq_title color1">Mark Wood</div>
-                        Sivamus at magna non nuncer tristique rhoncus. Aliquame nibh ante, egestas id dictumertolom  commodo. Praesent faucib mal.
-                        <a href="#"><span class="fa fa-chevron-right"></span>more testimonials</a>
+                        <div class="bq_title color1">Dyt. Sena Karamanlı</div>
+                        <div class="bq_about">
+                            @(ViewBag.Settings.AboutMe.Length > 200 ? ViewBag.Settings.AboutMe.Substring(0, 200) + "..." : ViewBag.Settings.AboutMe)
+                        </div>
+                        <a href="/Home/Aboutme"><span class="fa fa-chevron-right"></span>Devam..</a>
                     </div>
                 </blockquote>
             </div>
             <div class="grid_4">
-                <h2>What’s new</h2>
+                <h2>Takvim</h2>
                 <div class="block2">
-                    <time datetime="2014-01-01">11<br>June</time>
+                    <time datetime="2014-01-01">11<br>Haziran<br>2019</time>
                     <div class="extra_wrapper">
                         <div class="text1"><a href="#">Vivamus at magna non nunc </a></div>Rehoncus. Aliquam nibh antegestas id dictum a, commodo. Praesenterto faucibus malesuada faucibus
                     </div>
                 </div>
                 <div class="block2">
-                    <time datetime="2014-01-01">15<br>APR</time>
+                    <time datetime="2014-01-01">15<br>Nisan<br>2019</time>
                     <div class="extra_wrapper">
                         <div class="text1"><a href="#">Tivamus at magna non nunc </a></div>Rehoncus. Aliquam nibh antegestas id dictum a, commodo. Praesenterto faucibus malesuada faucibu
                     </div>
                 </div>
             </div>
-            <div class="grid_4">
+            <div hidden class="grid_4">
                 <h2>Opening Hours</h2>
                 <ul class="shed">
                     <li><span>Breakfast:</span> 8AM - 11AM</li>

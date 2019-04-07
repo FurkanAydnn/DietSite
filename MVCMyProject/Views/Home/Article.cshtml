@@ -1,0 +1,133 @@
+﻿@{
+    Layout = null;
+}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style>
+    @@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+    @@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+
+    body, html {
+        height: 100%;
+    }
+
+    body {
+        font-family: 'Lato', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+    }
+
+    a {
+        color: #fff;
+    }
+
+    .btn {
+        border-radius: 0;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: 600;
+        text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+    }
+
+        .btn:focus {
+            box-shadow: none;
+        }
+
+    .btn-primary {
+        background-color: #00cec9;
+        border-color: #00cec9;
+    }
+
+        .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:not(:disabled):not(.disabled):active {
+            background-color: #098c87;
+            border-color: #098c87;
+        }
+
+    .main-screen {
+        background-image: url(https://grafreez.com/wp-content/temp_demos/coming-soon-demo/demo-02/img/body-bg-01.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+    }
+
+        .main-screen:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: 0;
+            opacity: 0.55;
+            background-color: #000;
+        }
+
+    /*==========Main Content Section==========*/
+    .heading-sec {
+        float: left;
+        width: 100%;
+        color: #fff;
+        padding: 30px;
+        position: relative;
+        z-index: 2;
+    }
+
+        .heading-sec h1 {
+            font-weight: 700;
+            font-size: 52px;
+        }
+
+        .heading-sec strong {
+            color: #00cec9;
+        }
+
+    /*==========Notification and Social Media==========*/
+    .contact-sec {
+        float: left;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+
+        .contact-sec .subscribe-box a {
+            padding: 8px 20px;
+        }
+
+    @@media only screen and (max-width: 768px) {
+        .heading-sec h1 {
+            font-size: 45px;
+        }
+
+        .heading-sec {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+</style>
+
+<section class="main-screen">
+    <div class="container animated zoomIn">
+        <div class="row">
+            <div class="heading-sec text-center">
+                <div class="col-lg-8 col-md-12 mx-auto">
+                    <h1 class="text-uppercase">Coming Soon</h1>
+                    <p>Our website is under construction.</p>
+                </div>
+            </div>
+            <div class="contact-sec mb-5">
+                <div class="col-md-7 mx-auto subscribe-box my-2 text-center">
+                    <a href="/" class="btn btn-primary">
+                        Anasayfaya dön
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

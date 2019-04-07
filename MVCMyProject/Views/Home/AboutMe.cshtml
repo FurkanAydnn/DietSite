@@ -1,0 +1,98 @@
+﻿@using Entity
+@model GeneralSettings
+
+@section styles{
+    <style>
+        .aboutus-area {
+            padding-top: 120px;
+            padding-bottom: 120px;
+        }
+        /*-- aboutus Image --*/
+        .aboutus-image {
+            margin-right: 52px;
+            width: 318px;
+        }
+
+        @@media only screen and (min-width: 992px) and (max-width: 1200px) {
+            .aboutus-image {
+                margin-right: 35px;
+                width: 345px;
+            }
+        }
+
+        @@media only screen and (min-width: 768px) and (max-width: 991px) {
+            .aboutus-image {
+                margin-bottom: 30px;
+                float: none;
+            }
+        }
+
+        @@media only screen and (max-width: 767px) {
+            .aboutus-image {
+                margin-bottom: 30px;
+                margin-right: 0;
+                float: none;
+                width: auto;
+            }
+        }
+
+        .aboutus-image img {
+            width: 100%;
+            border-radius: 50px;
+        }
+
+        /*-- aboutus Content --*/
+        .aboutus-content h1 {
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 40px;
+            margin-bottom: 23px;
+        }
+
+        @@media only screen and (max-width: 479px) {
+            .aboutus-content h1 {
+                font-size: 30px;
+                line-height: 30px;
+                margin-bottom: 23px;
+            }
+        }
+
+        .aboutus-content h1 span {
+            color: #97C570;
+        }
+
+        .aboutus-content h4 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #9b9b9b;
+            margin-bottom: 23px;
+        }
+
+        .aboutus-content p {
+            font-size: 16px;
+            line-height: 27px;
+        }
+    </style>
+}
+
+<div class="content">
+    <div class="aboutus-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="grid_4 ">
+                        <div class="aboutus-image float-left hidden-sm">
+                            <img src="~/Uploads/Images/sena_karamanli.jpeg" />
+                        </div>
+                    </div>
+                    <div class="grid_8">
+                        <div class="aboutus-content ">
+                            <h1>Dyt. Sena <span>Karamanlı</span></h1>
+                            <p>@Model.AboutMe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

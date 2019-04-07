@@ -29,7 +29,7 @@ body {
     position: relative;
     background-color: #adacac;
     color: #969696;
-    font: 300 14px/20px 'Open Sans', sans-serif;
+    font-family: 300 14px/20px 'Raleway', cursive;
 }
 
 .ic {
@@ -76,7 +76,7 @@ img {
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     color: #535151;
-    font-family: 'Economica', sans-serif;
+    font-family: 'Raleway', cursive;
 }
 
 h2 {
@@ -357,6 +357,7 @@ header {
     background-color: #FDFBED;
     border-radius: 50px;
     padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 }
 
 .diet_logo {
@@ -408,7 +409,7 @@ header {
 
 .bann_title {
     padding: 6px 0 18px;
-    width: 194px;
+    width: 300px;
     margin: 0 auto 2px;
     background: url(../images/bann_sep.png) 0 bottom repeat-x;
 }
@@ -488,6 +489,10 @@ header {
     font-weight: 600;
     line-height: 20px;
     margin-bottom: 12px;
+}
+
+.bq_about {
+    min-height: 210px;
 }
 
 .block2 {
@@ -1002,6 +1007,10 @@ header {
 
     .img_inner {
         margin-top: 30px;
+    }
+
+    .index_img {
+        width: 100px !important;
     }
 
     .none {

@@ -29,8 +29,19 @@ namespace MVCMyProject.Controllers
                 .FirstOrDefault();
 
             ViewBag.DietLists = _uw.DietLists.GetAll();
+            ViewBag.Settings = _uw.GeneralSettings.GetSettings();
 
             return View();
+        }
+
+        public ActionResult AboutMe()
+        {
+            return View(_uw.GeneralSettings.GetSettings());
+        }
+
+        public ActionResult Contact()
+        {
+            return View(_uw.GeneralSettings.GetSettings());
         }
 
         [HttpGet]
@@ -82,9 +93,9 @@ namespace MVCMyProject.Controllers
             return View(dietForm);
         }
 
-        public ActionResult Contact()
+        public ActionResult Article()
         {
-            return View(_uw.GeneralSettings.GetSettings());
+            return View(_uw.Articles.GetAll());
         }
     }
 }
