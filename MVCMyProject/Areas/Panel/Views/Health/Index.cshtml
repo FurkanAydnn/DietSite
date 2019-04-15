@@ -30,13 +30,11 @@
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons text-danger">warning</i>
-                            <a href="#pablo">Get More Space...</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div hidden class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header card-header-success card-header-icon">
                         <div class="card-icon">
@@ -52,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div hidden class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header card-header-danger card-header-icon">
                         <div class="card-icon">
@@ -68,7 +66,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div hidden class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header card-header-info card-header-icon">
                         <div class="card-icon">
@@ -96,7 +94,6 @@
                         <table class="table table-hover">
                             <thead class="text-warning">
                                 <tr>
-                                    <th>ID</th>
                                     <th>Başlık</th>
                                     <th>İşlemler</th>
                                 </tr>
@@ -105,7 +102,6 @@
                                 @foreach (HealthInfo item in Model)
                                 {
                                     <tr>
-                                        <td>@item.Id</td>
                                         <td>@item.Name</td>
                                         <td><a href="?del=@item.Id">Sil</a>/<a href="/Panel/Health/Edit/@item.Id">Düzenle</a></td>
                                     </tr>

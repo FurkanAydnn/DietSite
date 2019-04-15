@@ -627,6 +627,7 @@ header {
         -o-transition: 0.5s ease;
         -webkit-transition: 0.5s ease;
         width: 100%;
+        height: 270px;
         box-shadow: 0 0 #fff;
     }
 
@@ -638,6 +639,10 @@ header {
     background-color: #f1f0f1;
     padding: 1px;
 }
+
+    .gall_block img.banner_img {
+        height: 300px;
+    }
 
 .gall_bot {
     padding: 28px 21px 30px;

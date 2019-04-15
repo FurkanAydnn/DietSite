@@ -80,7 +80,7 @@
                     </div>
                     <div class="form-group col-sm-6">
                         <label class="control-label">Yaş:</label>
-                        <input type="number" class="form-control" name="Age" />
+                        <input type="number" class="form-control" name="Age" required />
                     </div>
                     <div class="form-group col-sm-6">
                         <label class="control-label">Cinsiyet:</label>
@@ -95,19 +95,19 @@
                     </div>
                     <div class="form-group col-sm-6">
                         <label class="control-label">Boy:</label>
-                        <input class="form-control" type="number" name="Height" />
+                        <input class="form-control" type="number" name="Height" required />
                     </div>
                     <div class="form-group col-sm-6">
                         <label class="control-label">Kilo:</label>
-                        <input class="form-control" type="number" name="Weight" />
+                        <input class="form-control" type="number" name="Weight" required />
                     </div>
                     <div class="form-group col-sm-6">
                         <label class="control-label">Bel Çevresi:</label>
-                        <input class="form-control" type="number" name="WaistLength" />
+                        <input class="form-control" type="number" name="WaistLength" required />
                     </div>
                     <div class="form-group col-sm-6">
                         <label class="control-label">Genellikle bulunduğunuz kilo aralığı:</label>
-                        <input class="form-control" type="number" name="OverallWeight" />
+                        <input class="form-control" type="number" name="OverallWeight" required />
                     </div>
                     <hr class="col-xs-12">
                     <h4>Beslenme Alışkanlıkları</h4>
@@ -237,13 +237,13 @@
                     <hr class="col-xs-12">
                     <h4>Sağlık Bilgileri</h4>
                     <div class="row">
-                        <div class="form-group col-sm-4">
-                            @foreach (HealthInfo item in ViewBag.HealthInfo)
-                            {
+                        @foreach (HealthInfo item in ViewBag.HealthInfo)
+                        {
+                            <div class="form-group col-sm-4">
                                 <label class="control-label">@item.Name :</label>
                                 <input class="form-control" name="@item.Name" placeholder="Test sonucunu giriniz.." />
-                            }
-                        </div>
+                            </div>
+                        }
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-6">

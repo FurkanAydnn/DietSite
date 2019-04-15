@@ -30,16 +30,19 @@
 <section class="content">
     <div class="ic"></div>
     <div class="container">
-        <div class="asdfg">
-            <span class="mail-alert">
-                İşlem başarılı
-            </span>
-        </div>
+        @if (TempData["Notification"] != null)
+        {
+            <div class="asdfg">
+                <span class="mail-alert">
+                    @TempData["Notification"]
+                </span>
+            </div>
+        }
         <div class="row">
             <div class="grid_4">
                 <div class="banner">
                     <div class="gall_block">
-                        <img src="/Theme/images/page1_img1.jpg" alt="">
+                        <img class="banner_img" src="/Uploads/Images/breakfast.jpeg" alt="">
                         <div class="bann_capt ">
                             <div class="maxheight">
                                 <img src="/Theme/images/icon1.png" alt="">
@@ -57,22 +60,22 @@
                             <div class="maxheight">
                                 <img src="/Theme/images/icon2.png" alt="">
                                 <div class="bann_title">@article2.Title</div>
-                                <a href="#">more</a>
+                                <a href="#">devamini gör..</a>
                             </div>
                         </div>
-                        <img src="/Theme/images/page1_img2.jpg" alt="">
+                        <img class="banner_img" src="/Uploads/Images/fruit.jpeg" alt="">
                     </div>
                 </div>
             </div>
             <div class="grid_4">
                 <div class="banner ">
                     <div class="gall_block">
-                        <img src="/Theme/images/page1_img3.jpg" alt="">
+                        <img class="banner_img" src="/Uploads/Images/bread.jpeg" alt="">
                         <div class="bann_capt  bn__2">
                             <div class="maxheight">
                                 <img src="/Theme/images/icon3.png" alt="">
                                 <div class="bann_title">@article3.Title</div>
-                                <a href="#">more</a>
+                                <a href="#">devamini gör..</a>
                             </div>
                         </div>
                     </div>
@@ -131,12 +134,12 @@
                 </div>
             </div>
             <div class="grid_12">
-                <h2>Dishes for You to Try</h2>
+                <h2>Paylaşımlarım</h2>
             </div>
             <div class="gallery">
-                <div class="grid_4"><a href="images/big1.jpg" class="gall_item"><img src="/Theme/images/page1_img4.jpg" alt=""></a><a href="#" class="link1">+</a><div class="clear"></div></div>
-                <div class="grid_4"><a href="images/big2.jpg" class="gall_item"><img src="/Theme/images/page1_img5.jpg" alt=""></a><a href="#" class="link1">+</a><div class="clear"></div></div>
-                <div class="grid_4"><a href="images/big3.jpg" class="gall_item"><img src="/Theme/images/page1_img6.jpg" alt=""></a><a href="#" class="link1">+</a><div class="clear"></div></div>
+                <div class="grid_4"><a href="#" class="gall_item"><img src="/Uploads/Images/breakfast.jpeg" alt=""></a><a href="#" class="link1">+</a><div class="clear"></div></div>
+                <div class="grid_4"><a href="#" class="gall_item"><img src="/Uploads/Images/bread.jpeg" alt=""></a><a href="#" class="link1">+</a><div class="clear"></div></div>
+                <div class="grid_4"><a href="#" class="gall_item"><img src="/Uploads/Images/fruit.jpeg" alt=""></a><a href="#" class="link1">+</a><div class="clear"></div></div>
             </div>
             <div class="grid_2"></div>
             <div class="grid_4">

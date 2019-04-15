@@ -16,12 +16,30 @@
 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+    <style>
+        .logo img {
+            width: 100%;
+        }
+
+        .sidebar {
+            background-color: #FDFBED;
+        }
+
+        .card.card-stats {
+            background-color: #FDFBED;
+        }
+
+        .card-body.table-responsive {
+            background-color: #FDFBED;
+        }
+    </style>
 </head>
 <body class="">
     <div class="wrapper">
         <div class="sidebar" data-color="orange" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
             <div class="logo">
-                <a href="/Panel/Article/Index">Logo will be here</a>
+                <a href="/"><img src="~/Uploads/Logos/main_logo.png" alt="Alternate Text" /></a>
             </div>
             @{
                 var a = Request.Url.AbsolutePath;
@@ -29,8 +47,8 @@
                 var dietlist_isACtive = "";
                 var health_isActive = "";
                 var product_isActive = "";
-                var settings_isActive="";
-                            if (a.Contains("Article"))
+                var settings_isActive = "";
+                if (a.Contains("Article"))
                 {
                     article_isActive = "active";
                 }

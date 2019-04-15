@@ -556,6 +556,10 @@
     <Content Include="Theme\js\touchTouch.jquery.js" />
     <Content Include="Theme\mail\libmail.php" />
     <Content Include="Theme\mail\MailHandler.php" />
+    <Content Include="Uploads\Images\bread.jpeg" />
+    <Content Include="Uploads\Images\breakfast.jpeg" />
+    <Content Include="Uploads\Images\coffee.jpeg" />
+    <Content Include="Uploads\Images\fruit.jpeg" />
     <Content Include="Uploads\Images\sena_karamanli.jpeg" />
     <Content Include="Uploads\Logos\facebook.png" />
     <Content Include="Uploads\Logos\twitter.png" />

@@ -51,7 +51,7 @@
                                 @if (Model != null)
                                 {
                                     <tr>
-                                        <td>@Model.AboutMe</td>
+                                        <td>@(Model.AboutMe.Length > 80 ? Model.AboutMe.Substring(0, 80) + "..." : Model.AboutMe)</td>
                                         <td>@Model.InstagramURL</td>
                                         <td>@Model.TwitterURL</td>
                                         <td>@Model.FacebookURL</td>
